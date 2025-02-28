@@ -30,9 +30,7 @@ export function SigninForm({ className, ...props }: React.ComponentPropsWithoutR
     setCookie('username', username)
     localStorage.setItem('username', username)
     setOpenQuiz(false)
-    setTimeout(() => {
-      router.replace('/')
-    }, 0)
+    window.location.href = '/'
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

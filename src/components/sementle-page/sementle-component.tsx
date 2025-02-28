@@ -131,7 +131,7 @@ const SementleComponent = () => {
             placeholder="Enter a word..."
             className="h-[46px] pl-10 rounded-full w-full bg-secondary transition-all hover:bg-secondary/80"
           />
-          {error && <p className="animate-fadeIn text-destructive-foreground text-sm mt-1">{String(error)}</p>}
+          {error && <p className="animate-fadeIn text-destructive-foreground text-sm mt-1">{String(error)}, 참고로 스파이시관련 용어 ex. 갤래 이딴건 절대 나올예정 없습니다.</p>}
         </div>
         <div className="flex flex-row justify-around items-center w-full gap-4">
           <Popover>
@@ -163,7 +163,6 @@ const SementleComponent = () => {
           </Button>
         </div>
         <p className="animate-fadeIn text-muted-foreground text-sm mt-1 self-start">Chill하지 못하신분들을 위한 힌트!</p>
-
       </div>
 
       {showAnswerResult && (
@@ -234,6 +233,10 @@ const SementleComponent = () => {
 export default SementleComponent
 
 const faqList = [
+  {
+    title: '왜 잘쓰이는 단어인데 없다고 나오나요?',
+    description: '매 문제마다 서버가 동작하여 인공지능이 빈도수가 높은 단어를 10000개를 사용합니다. 모델의 용량이 커질수록 서버비가 너무 비싸기때문에 벙을 못나갈 수 있습니다. 더 강력한 사전 구축을 원하신다면 저에게 송금하세요!'
+  },
   {
     title: '플레이하는 방법은 무엇인가요?',
     description: '목표는 비밀 단어를 추측하는 것입니다. 각 추측은 하나의 단어여야 합니다. Semantle은 당신의 추측이 비밀 단어와 의미상 얼마나 유사한지 알려줄 것입니다. 다른 단어 게임과 달리 이 게임은 철자법에 관한 것이 아닙니다. 그것은 의미에 관한 것입니다. 우리는 대규모 한글 모델을 바탕으로 Wikipedia의 빈도수가 높은 한글 10000개 단어를 추출하여, Kiwi 기술을 활용하여 형태소분석 후 의미있는 정답 리스트 5000가지를 뽑아내며, 인공지능(특히 fasttext 기술)을 사용하여 이 의미를 계산합니다. fasttext에서 각 단어는 다른 단어와의 측정 가능한 의미적 거리를 갖고 있어 관련성 수준을 나타냅니다. 비밀 단어를 5000 단어 이내로 얻으면 근접성 열에서 알려드립니다. 당신은 무제한의 추측을 할 수 있습니다! 행운을 빌어요!'
