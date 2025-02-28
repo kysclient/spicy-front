@@ -14,10 +14,12 @@ export default function RootContainer({ children }: PropsType) {
 
   useEffect(() => {
     setMounted(true)
-    const username = localStorage.getItem('username')
-    const currentPath = typeof window !== 'undefined' ? window.location.pathname : ''
-    if (!username && (currentPath !== '/signin' && currentPath !== '/terms' && currentPath !== '/privacy')) {
-      router.push('/signin')
+    if (typeof window !== 'undefined') {
+      const username = localStorage.getItem('username')
+      const currentPath = window.location.pathname
+      if (!username && currentPath !== '/signin' && currentPath !== '/terms' && currentPath !== '/privacy') {
+        router.push('/signin')
+      }
     }
   }, [router])
 
