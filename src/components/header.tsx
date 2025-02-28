@@ -71,9 +71,14 @@ const navLinks = [
     href: '/'
   },
   {
+    title: '오늘의 운세',
+    href: '/fortune'
+  },
+  {
     title: '술게임',
     href: '/drinking-game'
   },
+  
   {
     title: '메뉴추천',
     href: '/recommend-food'
