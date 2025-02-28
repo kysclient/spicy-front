@@ -1,10 +1,7 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
-import { motion, useAnimation, useMotionValue } from 'framer-motion'
-import '@/styles/rotate.scss'
-import { Button } from '../ui/button'
-import { Loader2 } from 'lucide-react'
+import React, { useState } from 'react'
+import { motion, useAnimation } from 'framer-motion'
 
 const options: string[] = [
   '김치찌개',
