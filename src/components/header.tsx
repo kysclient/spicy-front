@@ -1,11 +1,12 @@
 'use client'
 import { useTheme } from 'next-themes'
 import AppLogo from './app-logo'
-import { Moon, Sun } from 'lucide-react'
+import { Menu, Moon, Sun } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-
+import { Button } from './ui/button'
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 const Header = () => {
   const { theme, setTheme } = useTheme()
   const pathname = usePathname()
@@ -17,10 +18,33 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-center h-full">
         <div className="w-full flex justify-between items-center px-[20px]">
           <div className="flex flex-row items-center">
-            <div className="mr-2 sm:mr-10">
+            <div className="mr-2 sm:mr-10 flex flex-row gap-2 items-center">
+              <div className="flex sm:hidden">
+                <Sheet>
+                  <SheetTrigger>
+                    <Menu className="text-muted-foreground" />
+                  </SheetTrigger>
+                  <SheetContent side={'bottom'} className="min-h-[400px] rounded-t-lg">
+                    <SheetTitle className="mb-8">
+                      <div className="w-full flex justify-center items-center">
+                        <div className="w-[70px] h-2 bg-secondary rounded-full"></div>
+                      </div>
+                    </SheetTitle>
+                    <ul className="flex flex-col gap-4 text-md xl:gap-6">
+                      {navLinks.map((nav, idx) => (
+                        <li key={nav.href}>
+                          <Link className={cn('transition-colors hover:text-foreground/80 text-muted-foreground', pathname === nav.href && 'text-foreground')} href={nav.href}>
+                            {nav.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </SheetContent>
+                </Sheet>
+              </div>
               <AppLogo />
             </div>
-            <nav>
+            <nav className="hidden sm:flex">
               <ul className="flex flex-row items-center gap-4 text-sm xl:gap-6">
                 {navLinks.map((nav, idx) => (
                   <li key={nav.href}>

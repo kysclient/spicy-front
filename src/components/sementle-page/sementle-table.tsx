@@ -9,11 +9,12 @@ interface SementleTableProps {
 }
 
 const SementleTable = ({ data }: SementleTableProps) => {
+  if (data.length === 0) return null
+
   const sortedData = data.sort((a: any, b: any) => b.createdAt - a.createdAt)
   const [latestData, ...remainingData] = sortedData
   const sortedRemainingData = remainingData.sort((a: any, b: any) => b.similarity - a.similarity)
 
-  if (data.length === 0) return null
   return (
     <Table>
       <TableCaption>마지막 추측 - {latestData && formatDate(latestData.createdAt)}</TableCaption>
@@ -51,4 +52,4 @@ const SementleTable = ({ data }: SementleTableProps) => {
   )
 }
 
-export default React.memo(SementleTable)
+export default SementleTable
