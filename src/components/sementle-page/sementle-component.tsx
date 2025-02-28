@@ -131,7 +131,7 @@ const SementleComponent = () => {
             placeholder="Enter a word..."
             className="h-[46px] pl-10 rounded-full w-full bg-secondary transition-all hover:bg-secondary/80"
           />
-          {error && <p className="animate-fadeIn text-destructive-foreground text-sm mt-1">{String(error)}, 참고로 스파이시관련 용어 ex. 갤래 이딴건 절대 나올예정 없습니다.</p>}
+          {error && <p className="animate-fadeIn text-destructive-foreground text-sm mt-1">{String(error)} 스파이시관련 용어 (ex. 갤래)는 자중 부탁드립니다.</p>}
         </div>
         <div className="flex flex-row justify-around items-center w-full gap-4">
           <Popover>
