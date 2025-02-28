@@ -168,7 +168,7 @@ const SementleComponent = () => {
       {showAnswerResult && (
         <div className="flex flex-col space-y-4 w-full bg-secondary rounded-lg p-4 animate-fadeIn">
           <p>
-            축하합니다! {parseInt(currentIndex) - 1}번째 문제를 {guessData?.length}번째 추측만에 정답을 맞혔네요!
+            축하합니다! {parseInt(currentIndex) - 1}번째 문제를 맞혔네요!
           </p>
 
           <Button
@@ -212,13 +212,13 @@ const SementleComponent = () => {
             <AlertDialogHeader>
               <AlertDialogTitle>
                 <span>
-                  🎉 <span className="text-[#f58ef5]">{answers[parseInt(currentIndex) - 2]?.user}님이</span> {parseInt(currentIndex)}번째 문제 정답을 맞추셨습니다🎉
+                  🎉 <span className="text-[#f58ef5]">{answers[parseInt(currentIndex) - 2]?.user}님이</span> {parseInt(currentIndex) - 1}번째 문제 정답을 맞추셨습니다🎉
                 </span>
               </AlertDialogTitle>
             </AlertDialogHeader>
             <AlertDialogDescription>문제는 계속됩니다.</AlertDialogDescription>
-            <div>
-              {parseInt(currentIndex)}번째 문제의 정답은 <span className="text-[#1d9bf0]">{answers[parseInt(currentIndex) - 2]?.answer}</span>였습니다..!
+            <div>            
+            {parseInt(currentIndex) - 1}번째 문제의 정답은 <span className="text-[#1d9bf0]">{answers[parseInt(currentIndex) - 2]?.answer}</span>였습니다..!
             </div>
             <AlertDialogFooter>
               <AlertDialogCancel>닫기</AlertDialogCancel>
