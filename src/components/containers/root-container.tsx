@@ -13,13 +13,12 @@ export default function RootContainer({ children }: PropsType) {
   const router = useRouter()
 
   useEffect(() => {
+    // 클라이언트에서만 실행
     setMounted(true)
-    if (typeof window !== 'undefined') {
-      const username = localStorage.getItem('username')
-      const currentPath = window.location.pathname
-      if (!username && currentPath !== '/signin' && currentPath !== '/terms' && currentPath !== '/privacy') {
-        router.push('/signin')
-      }
+    const username = typeof window !== 'undefined' ? localStorage.getItem('username') : null
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname : ''
+    if (!username && currentPath && !['/signin', '/terms', '/privacy'].includes(currentPath)) {
+      router.replace('/signin')
     }
   }, [router])
 

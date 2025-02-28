@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 
-const RootContainer = dynamic(() => import('../components/containers/root-container'))
+const RootContainer = dynamic(() => import('../components/containers/root-container'), {
+  ssr: false 
+})
 import './globals.css'
 
 export const metadata: Metadata = {
