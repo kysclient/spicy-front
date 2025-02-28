@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import RootContainer from '@/components/containers/root-container'
-
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   title: '강남구 지역 모임 - 🔥SPICY🔥 외모커트라인 높아요❤️',
@@ -31,6 +31,7 @@ export default function RootLayout({
     <html lang="ko">
       <body suppressHydrationWarning>
         <RootContainer>{children}</RootContainer>
+        <Analytics />
       </body>
     </html>
   )
