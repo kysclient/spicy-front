@@ -15,14 +15,14 @@ const SementleComponent = () => {
   const [word2, setWord2] = useState('')
   const [explanation, setExplanation] = useState('')
   const [similarity, setSimilarity] = useState<number | null>(null)
-  const username = localStorage.getItem('username')
+  const username = typeof window !== 'undefined' ? localStorage.getItem('username') : ''
   const isOwner = username === 'topten'
-  const guessList = localStorage.getItem('guessList')
+  const guessList = typeof window !== 'undefined' ? localStorage.getItem('guessList') : '[]'
   const [guessData, setGuessData] = useState<any[]>(guessList ? JSON.parse(guessList) : [])
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [openAlert, setOpenAlert] = useState(false)
-  const [currentIndex, setCurrentIndex] = useState<string>(localStorage.getItem('currentIndex') ?? '0')
+  const [currentIndex, setCurrentIndex] = useState<string>(typeof window !== 'undefined' ? localStorage.getItem('currentIndex') ?? '0' : '0')
   const [answers, setAnswers] = useState<any[]>([])
   const [showAnswerResult, setShowAnswerResult] = useState(false)
   const [hints, setHints] = useState([])
