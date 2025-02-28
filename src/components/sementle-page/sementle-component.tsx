@@ -100,6 +100,7 @@ const SementleComponent = () => {
           return updatedAnswers
         })
         setHints(data.similar_words)
+        setError('')
       }
     }
     setLoading(false)
@@ -161,6 +162,8 @@ const SementleComponent = () => {
             추측
           </Button>
         </div>
+        <p className="animate-fadeIn text-muted-foreground text-sm mt-1 self-start">Chill하지 못하신분들을 위한 힌트!</p>
+
       </div>
 
       {showAnswerResult && (
