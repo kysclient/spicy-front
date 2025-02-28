@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import AppLogo from '../app-logo'
 import Link from 'next/link'
+import { setCookie } from 'cookies-next/client'
 
 export function SigninForm({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
   const [username, setUsername] = useState('')
@@ -26,6 +27,7 @@ export function SigninForm({ className, ...props }: React.ComponentPropsWithoutR
       setAnswer('')
       return
     }
+    setCookie('username', username)
     localStorage.setItem('username', username)
     setOpenQuiz(false)
     router.replace('/')

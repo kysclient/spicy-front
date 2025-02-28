@@ -150,7 +150,7 @@ const SementleComponent = () => {
                   ))
                 ) : (
                   <div className="flex w-full justify-center items-center py-4">
-                    <p className='text-center'>힌트가 없습니다.</p>
+                    <p className="text-center">힌트가 없습니다.</p>
                   </div>
                 )}
               </div>
